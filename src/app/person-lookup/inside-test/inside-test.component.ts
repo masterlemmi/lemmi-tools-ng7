@@ -1,3 +1,4 @@
+import { Person } from './../models/person';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,6 +11,9 @@ export class InsideTestComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
+
+
+
+}
 
 }

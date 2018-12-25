@@ -1,3 +1,4 @@
+import { PersonService } from './services/person.service';
 import { SharedModule } from './../shared/shared.module';
 import { PersonLookupRoutingModule } from './person-lookup-routing.module';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ import { InsideTestComponent } from './inside-test/inside-test.component';
     CommonModule,
     PersonLookupRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [PersonService]
 })
 export class PersonLookupModule { }
