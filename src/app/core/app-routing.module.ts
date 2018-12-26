@@ -6,7 +6,7 @@ import {PersonLookupModule} from 'app/person-lookup/person-lookup.module';
 
 
 const routes: Routes = [
-{ path: 'person-lookup', loadChildren: () => PersonLookupModule},
+{ path: 'people', loadChildren: () => PersonLookupModule},
   { path: 'test', component: TestComponent },
   { path: '', pathMatch: 'full', redirectTo: ''},
   { path: "**",redirectTo:"test"}

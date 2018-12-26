@@ -1,0 +1,31 @@
+<div *ngIf="person$ | async as person">
+  <mat-card class="profile">
+    <!-- <mat-card-header class="profile-header">
+      <figure class="profile-header__picture">
+        <img src="person.photoUrl" default="assets/no-photo.png" alt="person.nickname" >
+      </figure>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis fugit distinctio incidunt ab iste aut odit facilis hic cupiditate ut quia at dignissimos animi soluta, vero, perferendis eligendi fugiat rem?
+      </div>
+      <mat-card-title class="profile-header__title">{{person.nickname}}</mat-card-title>
+      <mat-card-subtitle class="profile-header__name">{{person.name}}</mat-card-subtitle>
+    </mat-card-header> -->
+
+    <mat-card class="profile-header">
+        <figure class="profile-header__picture">
+            <img src="person.photoUrl" default="assets/no-photo.png" alt="person.nickname" >
+          </figure>
+      <p class="profile-header__title">{{person.name}}</p>
+      <p class="profile-header__subtitle">{{person.nickname}}</p>
+    </mat-card>
+    <hr>
+    <mat-card class="profile-details">
+        <p>Age: {{person.age}}</p>
+        <p>Birth Day: {{person.birthday}}</p>
+        <p>Gender: {{person.gender}}</p>
+        <p>Profile: {{person.profile}}</p>
+     </mat-card>
+
+  </mat-card>
+</div>
+

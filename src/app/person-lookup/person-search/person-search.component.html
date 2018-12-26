@@ -1,0 +1,17 @@
+<mat-card class="people">
+    <!-- <mat-card-header>People</mat-card-header> -->
+  <mat-form-field class="people__search-box">
+    <input #searchBox id="search-box" matInput placeholder="Find..." 
+    (input)="search(searchBox.value)"
+    value="taeza">
+  </mat-form-field>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let person of people$ | async" class="person">
+        <img [routerLink]="['/people/id', person.id]" mat-list-avatar src="{{person.photoUrl}}" default="assets/no-photo.png"
+          class="person__img img" alt="{{person.nickname}}">
+        <h3 [routerLink]="['/people/id', person.id]" mat-line class="person__name">{{person.name}}</h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

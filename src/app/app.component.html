@@ -1,18 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
+  
 
-
-  </h1>
-
-  <button routerLink="/test">Test</button>
+  <!-- <button routerLink="/test">Test</button>
   <button routerLink="/person-lookup">PersonLookup</button>
-  <button routerLink="">Home</button>
+  <button routerLink="">Home</button> -->
+
+  <nav>
+      <a routerLink="/test" >TEST</a>
+      <a routerLink="/people" >PersonLookup</a>
+      <a routerLink="">Home</a>
+    </nav>
   
   <router-outlet></router-outlet>
 
 </div>
 
 
-<router-outlet></router-outlet>
+<div [@routeAnimation]="getAnimationData(routerOutlet)">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+  </div>

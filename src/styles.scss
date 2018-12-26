@@ -1,4 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+
+html { font-size: 62.5%} // == 10px
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+body {
+ margin: 0;
+ font-family: Roboto, sans-serif;
+}
+
+.people {
+
+}
+
+.person {
+    display: inline;
+
+    &__img {
+        cursor: pointer;
+    }
+
+    &__name {
+        
+        cursor: pointer;
+    }
+}

@@ -13,15 +13,15 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class PersonService {
 
-  private personesUrl = 'api/everyone';  // URL to web api
+  private personesUrl = 'api/family';  // URL to web api
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
 
   /** GET persones from the server */
-  getPersones (): Observable<Person[]> {
-    return this.http.get<Person[]>(this.personesUrl)
+  getAll (): Observable<Person[]> {
+    return this.http.get<Person[]>(`${this.personesUrl}/everyone`)
       .pipe(
         tap(_ => this.log('fetched persones')),
         catchError(this.handleError('getPersones', []))
@@ -30,7 +30,7 @@ export class PersonService {
 
   /** GET person by id. Return `undefined` when id not found */
   getPersonNo404<Data>(id: number): Observable<Person> {
-    const url = `${this.personesUrl}/?id=${id}`;
+    const url = `${this.personesUrl}/${id}`;
     return this.http.get<Person[]>(url)
       .pipe(
         map(persones => persones[0]), // returns a {0|1} element array
@@ -53,11 +53,12 @@ export class PersonService {
 
   /* GET persones whose name contains search term */
   searchPersones(term: string): Observable<Person[]> {
+    console.log("FINDING.. " + term)
     if (!term.trim()) {
       // if not search term, return empty person array.
       return of([]);
     }
-    return this.http.get<Person[]>(`${this.personesUrl}/?name=${term}`).pipe(
+    return this.http.get<Person[]>(`${this.personesUrl}/find?name=${term}`).pipe(
       tap(_ => this.log(`found persones matching "${term}"`)),
       catchError(this.handleError<Person[]>('searchPersones', []))
     );
