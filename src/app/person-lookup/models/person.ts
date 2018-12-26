@@ -7,7 +7,8 @@ export class Person {
     photoUrl: string
     name: string
     nickname: string
-    dateOfBirth: Date
+    age: string
+    birthday: Date
     parents: Person
     children: Person
     relationships: Map<string, Person[]>;
