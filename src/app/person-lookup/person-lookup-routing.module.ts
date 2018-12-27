@@ -6,9 +6,11 @@ import { PersonListComponent } from './person-list/person-list.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonEditComponent } from './person-edit/person-edit.component';
 import { PersonSearchComponent } from './person-search/person-search.component';
+import { LookupContainerComponent } from './lookup-container/lookup-container.component';
 
 const routes: Routes = [
-  { path: '', component: PersonListComponent, data: { animation: 'people' } }, // default route of the module
+  { path: '', component: LookupContainerComponent, data: { animation: 'people' } }, // default route of the module
+  { path: 'recent', component: PersonListComponent, data: { animation: 'people' } }, // default route of the module
   { path: 'id/:personId', component: PersonDetailComponent, data: { animation: 'person' } },
   { path: 'edit/:personId', component: PersonEditComponent, data: { animation: 'person' } },
   { path: 'search', component: PersonSearchComponent, data: { animation: 'person' } }

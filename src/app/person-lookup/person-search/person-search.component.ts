@@ -11,7 +11,7 @@ import { PersonService } from '../services/person.service';
 
 
 @Component({
-  selector: 'app-person-search',
+  selector: 'person-search',
   templateUrl: './person-search.component.html',
   styleUrls: ['./person-search.component.scss']
 })

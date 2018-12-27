@@ -1,5 +1,5 @@
-<mat-card class="people">
-    <!-- <mat-card-header>People</mat-card-header> -->
+<!-- <mat-card class="people">
+   
   <mat-form-field class="people__search-box">
     <input #searchBox id="search-box" matInput placeholder="Find..." 
     (input)="search(searchBox.value)"
@@ -14,4 +14,26 @@
       </mat-list-item>
     </mat-list>
   </mat-card-content>
-</mat-card>
+</mat-card> -->
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <!-- <input matInput placeholder="Find ... " aria-label="People" [matAutocomplete]="auto" > -->
+   
+    <input #searchBox id="search-box" matInput placeholder="Find..." 
+    (input)="search(searchBox.value)"
+    value="taeza">
+   
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let person of people$ | async" [value]="person.name">
+        <!-- <img class="example-option-img" aria-hidden [src]="person.photoUrl" default="assets/no-photo.png" height="25"> -->
+        <span>{{person.name}}</span> |
+        <small>Population: {{person.nickname}}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <br>
+
+  
+</form>

@@ -13,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     /* angular stuff */
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   declarations: [
     //SomeCustomComponent

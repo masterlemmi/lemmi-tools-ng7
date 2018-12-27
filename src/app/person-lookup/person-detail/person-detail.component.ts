@@ -6,7 +6,7 @@ import { Person } from '../models/person';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-person-detail',
+  selector: 'person-detail',
   templateUrl: './person-detail.component.html',
   styleUrls: ['./person-detail.component.scss']
 })

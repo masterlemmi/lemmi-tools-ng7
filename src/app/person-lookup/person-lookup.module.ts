@@ -8,9 +8,10 @@ import { PersonListComponent } from './person-list/person-list.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonEditComponent } from './person-edit/person-edit.component';
 import { PersonSearchComponent } from './person-search/person-search.component';
+import { LookupContainerComponent } from './lookup-container/lookup-container.component';
 
 @NgModule({
-  declarations: [InsideTestComponent, PersonListComponent, PersonDetailComponent, PersonEditComponent, PersonSearchComponent],
+  declarations: [InsideTestComponent, PersonListComponent, PersonDetailComponent, PersonEditComponent, PersonSearchComponent, LookupContainerComponent],
   imports: [
     CommonModule,
     PersonLookupRoutingModule,
