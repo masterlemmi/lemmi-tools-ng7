@@ -1,39 +1,29 @@
-<!-- <mat-card class="people">
-   
-  <mat-form-field class="people__search-box">
-    <input #searchBox id="search-box" matInput placeholder="Find..." 
-    (input)="search(searchBox.value)"
-    value="taeza">
-  </mat-form-field>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item *ngFor="let person of people$ | async" class="person">
-        <img [routerLink]="['/people/id', person.id]" mat-list-avatar src="{{person.photoUrl}}" default="assets/no-photo.png"
-          class="person__img img" alt="{{person.nickname}}">
-        <h3 [routerLink]="['/people/id', person.id]" mat-line class="person__name">{{person.name}}</h3>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card> -->
+<div class="container search-people">
 
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <!-- <input matInput placeholder="Find ... " aria-label="People" [matAutocomplete]="auto" > -->
-   
-    <input #searchBox id="search-box" matInput placeholder="Find..." 
-    (input)="search(searchBox.value)"
-    value="taeza">
-   
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let person of people$ | async" [value]="person.name">
-        <!-- <img class="example-option-img" aria-hidden [src]="person.photoUrl" default="assets/no-photo.png" height="25"> -->
-        <span>{{person.name}}</span> |
-        <small>Population: {{person.nickname}}</small>
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
+    <div class="field">
+        <p class="control has-icons-left has-icons-right">
+            <input class="input is-primary is-large is-rounded" type="text" placeholder="Find person ... " #searchBox
+                id="search-box" (input)="search(searchBox.value)" />
+            <span class="icon is-small is-left">
+                <i class="fa fa-user"></i>
+            </span>
 
-  <br>
+        </p>
+    </div>
 
-  
-</form>
+    <div *ngIf="(people$ | async) as people">
+        <div class="dropdown  search-results" [ngClass]="{'is-active': people && people.length}">
+            <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                <div class="dropdown-content">
+                    <div class="dropdown-item" *ngFor="let person of people">
+                        <person-result [person]="person" (click)="search('')"></person-result>
+                        <hr class="dropdown-divider">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

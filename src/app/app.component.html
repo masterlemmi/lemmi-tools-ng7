@@ -1,22 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  
-
-  <!-- <button routerLink="/test">Test</button>
-  <button routerLink="/person-lookup">PersonLookup</button>
-  <button routerLink="">Home</button> -->
-
-  <nav>
-      <a routerLink="/test" >TEST</a>
-      <a routerLink="/people" >PersonLookup</a>
-      <a routerLink="">Home</a>
-    </nav>
-  
-  <router-outlet></router-outlet>
-
-</div>
-
+<app-header></app-header>
 
 <div [@routeAnimation]="getAnimationData(routerOutlet)">
     <router-outlet #routerOutlet="outlet"></router-outlet>
-  </div>
+</div>
+<app-footer></app-footer>

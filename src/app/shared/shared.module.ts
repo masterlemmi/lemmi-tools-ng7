@@ -1,10 +1,11 @@
 /* 3rd party libraries */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MaterialModule} from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ImagePreloadDirective } from './directives/image-preload.directive';
 import { FormsModule } from '@angular/forms';
+import { BurgerToggleDirective } from './directives/burger-toggle.directive';
+import { InputFocusDirective } from './directives/input-focus.directive';
 
 /* our own custom components */
 //import { SomeCustomComponent } from './some-custom/some-custom.component';
@@ -12,21 +13,20 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     /* angular stuff */
-    MaterialModule,
     HttpClientModule,
     
   ],
   declarations: [
     //SomeCustomComponent
-    ImagePreloadDirective
+    ImagePreloadDirective,
+    BurgerToggleDirective, InputFocusDirective
     
   ],
   exports: [
     /* angular stuff */
-    MaterialModule,
     HttpClientModule,
     FormsModule,
-    ImagePreloadDirective
+    ImagePreloadDirective, BurgerToggleDirective, InputFocusDirective
   ]
 })
 export class SharedModule { }

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 import {
-  debounceTime, distinctUntilChanged, switchMap
+  debounceTime, distinctUntilChanged, switchMap, count
 } from 'rxjs/operators';
 import { Person } from '../models/person';
 import { PersonService } from '../services/person.service';
@@ -17,6 +17,7 @@ import { PersonService } from '../services/person.service';
 })
 export class PersonSearchComponent implements OnInit {
 
+  //showResults:boolean = false;
   people$: Observable<Person[]>;
   private searchTerms = new Subject<string>();
 
@@ -27,6 +28,7 @@ export class PersonSearchComponent implements OnInit {
     this.searchTerms.next(term);
   }
 
+
   ngOnInit(): void {
     this.people$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
@@ -35,8 +37,13 @@ export class PersonSearchComponent implements OnInit {
       // ignore new term if same as previous term
       distinctUntilChanged(),
 
+    
+
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.heroService.searchPersones(term)),
+      switchMap((term: string) => {
+         return this.heroService.searchPersones(term)
+      }),
+
     );
   }
 }

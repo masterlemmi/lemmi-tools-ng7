@@ -17,7 +17,7 @@ import {Directive, Input, HostBinding} from '@angular/core'
    // @HostBinding('class') className
   
     updateUrl() {
-      this.src = this.default;
+      this.src = this.default ? this.default: "assets/no-photo.png";
     }
     load(){
      // this.className = 'image-loaded';

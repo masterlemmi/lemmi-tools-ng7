@@ -8,8 +8,11 @@ export class Person {
     name: string
     nickname: string
     age: string
-    birthday: Date
+    dateOfBirth: Date
+    dateOfDeath: Date
     parents: Person
+    siblings: Person[]
     children: Person
     relationships: Map<string, Person[]>;
+    deceased:boolean;
 }

@@ -30,6 +30,7 @@ export class PersonService {
 
   /** GET person by id. Return `undefined` when id not found */
   getPersonNo404<Data>(id: number): Observable<Person> {
+    console.log("passed id", id);
     const url = `${this.personesUrl}/${id}`;
     return this.http.get<Person[]>(url)
       .pipe(

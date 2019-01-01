@@ -12,7 +12,10 @@ import { Observable } from 'rxjs';
 })
 export class PersonDetailComponent implements OnInit {
 
+  isEditing = true;
+
   person$: Observable<Person>
+  objectKeys = Object.keys;
   name:string
 
   constructor(
@@ -33,8 +36,8 @@ export class PersonDetailComponent implements OnInit {
       }));
   }
 
-  whodis(){
-    console.log(this.name)
+  searchFB(person: Person){
+    return `https://www.facebook.com/search/top/?q=${person.name}&epa=SEARCH_BOX`;
   }
 
 }

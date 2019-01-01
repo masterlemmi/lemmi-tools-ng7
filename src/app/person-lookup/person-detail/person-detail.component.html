@@ -1,39 +1,61 @@
-<div *ngIf="person$ | async as person">
-  <mat-card class="profile">
-    <!-- <mat-card-header class="profile-header">
-      <figure class="profile-header__picture">
-        <img src="person.photoUrl" default="assets/no-photo.png" alt="person.nickname" >
-      </figure>
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis fugit distinctio incidunt ab iste aut odit facilis hic cupiditate ut quia at dignissimos animi soluta, vero, perferendis eligendi fugiat rem?
+<section class="hero is-info is-fullheight is-bold">
+
+  <div class="hero-header" *ngIf="!isEditing">
+    <div class="container">
+      <person-search class="person-search"></person-search>
+    </div>
+
+    <div class="container"  *ngIf="person$ | async as person">
+      
+      <div class="card">
+          <div class="level-right">
+            <a class="profile-function" (click)="isEditing = !isEditing">[Edit] </a> <a class="profile-function">[Add] </a> </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-128x128">
+                <img src="{{person.photoUrl}}" alt="{{person.nickname}}" default> 
+              </figure>
+            </div>
+            <div class="media-content ">
+              <p class="title is-4 has-text-info">
+                <span class="icon  is-left" *ngIf="person.deceased">
+                  <i class="fa fa-cross fa-cloud"></i>
+                </span>
+                <a [href]="searchFB(person)" target="_blank">{{person.name}} </a>
+
+                </p>
+              <p class="subtitle is-5 has-text-primary">"{{person.nickname}}"</p>
+              <br />
+              <p class="subtitle is-6 has-text-primary">
+                Age: {{person.age}}
+                <br />
+                Birthday: {{person.dateOfBirth | date}}
+                <br />
+                <span *ngIf="person.deceased">Death: {{person.dateOfDeath | date}} </span>
+              </p>
+            </div>
+          </div>
+        </div>    
       </div>
-      <mat-card-title class="profile-header__title">{{person.nickname}}</mat-card-title>
-      <mat-card-subtitle class="profile-header__name">{{person.name}}</mat-card-subtitle>
-    </mat-card-header> -->
 
-    <mat-card class="profile-header">
-        <figure class="profile-header__picture">
-            <img src="person.photoUrl" default="assets/no-photo.png" alt="person.nickname" >
-          </figure>
-      <p class="profile-header__title">{{person.name}}</p>
-      <p class="profile-header__subtitle">{{person.nickname}}</p>
-    </mat-card>
-    <hr>
-    
-    <mat-card class="profile-details">
-        <p>Age: {{person.age}}</p>
-        <p>Birth Day: {{person.birthday}}</p>
-        <p>Gender: {{person.gender}}</p>
-        <p>Profile: {{person.profile}}</p>
-     </mat-card>
 
-     <mat-card class="profile-details">
-        <p>Age: {{person.age}}</p>
-        <p>Birth Day: {{person.birthday}}</p>
-        <p>Gender: {{person.gender}}</p>
-        <p>Profile: {{person.profile}}</p>
-     </mat-card>
+      <person-group [group-name]="'Parents'" [person-list]="person.parents"></person-group>
+      <person-group [group-name]="'Siblings'" [person-list]="person.siblings"></person-group>
+      <person-group [group-name]="'Children'" [person-list]="person.children"></person-group>
 
-  </mat-card>
-</div>
+      <div *ngIf="person.relationships as relationships">
 
+      <div *ngFor="let name of objectKeys(relationships)" >
+          <person-group [group-name]="name | titlecase" [person-list]="relationships[name]"></person-group>
+      </div>
+
+    </div>
+
+    </div>
+  </div>
+
+
+  <person-edit *ngIf="isEditing && (person$ | async) as person" [person]="person"></person-edit>
+
+</section>

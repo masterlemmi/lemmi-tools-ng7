@@ -10,10 +10,9 @@ import { LookupContainerComponent } from './lookup-container/lookup-container.co
 
 const routes: Routes = [
   { path: '', component: LookupContainerComponent, data: { animation: 'people' } }, // default route of the module
-  { path: 'recent', component: PersonListComponent, data: { animation: 'people' } }, // default route of the module
+  { path: 'recent', component: PersonListComponent, data: { animation: 'people' } }, 
   { path: 'id/:personId', component: PersonDetailComponent, data: { animation: 'person' } },
   { path: 'edit/:personId', component: PersonEditComponent, data: { animation: 'person' } },
-  { path: 'search', component: PersonSearchComponent, data: { animation: 'person' } }
 ];
 
 

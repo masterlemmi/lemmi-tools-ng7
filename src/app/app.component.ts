@@ -9,9 +9,8 @@ import { RouterOutlet } from '@angular/router';
   animations: [ slideInAnimation ]
 })
 export class AppComponent {
-  title = 'lemmi-tools-ng7';
-
   getAnimationData(outlet: RouterOutlet) {  //retrieves the animation data passed in the router 
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-  }
+}
+
 }
