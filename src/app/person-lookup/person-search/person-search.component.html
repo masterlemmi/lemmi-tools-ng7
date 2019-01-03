@@ -8,7 +8,7 @@
                 <i class="fa fa-user"></i>
             </span>
 
-        </p>
+        </p>  
     </div>
 
     <div *ngIf="(people$ | async) as people">
@@ -16,7 +16,8 @@
             <div class="dropdown-menu" id="dropdown-menu2" role="menu">
                 <div class="dropdown-content">
                     <div class="dropdown-item" *ngFor="let person of people">
-                        <person-result [person]="person" (click)="search('')"></person-result>
+                        <person-search-result [person]="person" 
+                        (dropDownClick)="onDropDownResultClick($event)"></person-search-result>
                         <hr class="dropdown-divider">
                     </div>
                 </div>

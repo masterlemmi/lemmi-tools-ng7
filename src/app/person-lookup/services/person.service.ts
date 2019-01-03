@@ -58,7 +58,7 @@ export class PersonService {
     if (!term.trim()) {
       // if not search term, return empty person array.
       return of([]);
-    }
+    }``
     return this.http.get<Person[]>(`${this.personesUrl}/find?name=${term}`).pipe(
       tap(_ => this.log(`found persones matching "${term}"`)),
       catchError(this.handleError<Person[]>('searchPersones', []))

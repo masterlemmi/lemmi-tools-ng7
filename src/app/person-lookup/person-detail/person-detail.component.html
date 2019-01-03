@@ -5,16 +5,18 @@
       <person-search class="person-search"></person-search>
     </div>
 
-    <div class="container"  *ngIf="person$ | async as person">
-      
+    <div class="container" *ngIf="person$ | async as person" >
+      <image-modal #personImageModal [src]="person.photoUrl"></image-modal>
       <div class="card">
-          <div class="level-right">
-            <a class="profile-function" (click)="isEditing = !isEditing">[Edit] </a> <a class="profile-function">[Add] </a> </div>
+        <div class="level-right">
+          <a class="profile-function" (click)="isEditing = !isEditing">[Edit] </a> 
+          <a class="profile-function">[Add]
+          </a> </div>
         <div class="card-content">
           <div class="media">
-            <div class="media-left">
-              <figure class="image is-128x128">
-                <img src="{{person.photoUrl}}" alt="{{person.nickname}}" default> 
+            <div class="media-left"> 
+              <figure class="image is-128x128" (click)="investigatePic()">
+                <img src="{{person.photoUrl}}" alt="{{person.nickname}}" default>
               </figure>
             </div>
             <div class="media-content ">
@@ -24,7 +26,7 @@
                 </span>
                 <a [href]="searchFB(person)" target="_blank">{{person.name}} </a>
 
-                </p>
+              </p>
               <p class="subtitle is-5 has-text-primary">"{{person.nickname}}"</p>
               <br />
               <p class="subtitle is-6 has-text-primary">
@@ -36,7 +38,7 @@
               </p>
             </div>
           </div>
-        </div>    
+        </div>
       </div>
 
 
@@ -45,17 +47,17 @@
       <person-group [group-name]="'Children'" [person-list]="person.children"></person-group>
 
       <div *ngIf="person.relationships as relationships">
-
-      <div *ngFor="let name of objectKeys(relationships)" >
+        <div *ngFor="let name of objectKeys(relationships)">
           <person-group [group-name]="name | titlecase" [person-list]="relationships[name]"></person-group>
+        </div>
       </div>
-
-    </div>
 
     </div>
   </div>
 
 
   <person-edit *ngIf="isEditing && (person$ | async) as person" [person]="person"></person-edit>
+
+
 
 </section>

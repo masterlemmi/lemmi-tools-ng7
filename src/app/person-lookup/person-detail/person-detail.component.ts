@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { PersonService } from '../services/person.service';
 import { switchMap } from 'rxjs/operators';
 import { Person } from '../models/person';
 import { Observable } from 'rxjs';
+import { ImageModalComponent } from 'app/shared/image-modal/image-modal.component';
 
 @Component({
   selector: 'person-detail',
@@ -14,6 +15,8 @@ export class PersonDetailComponent implements OnInit {
 
   isEditing = true;
 
+  @ViewChild(ImageModalComponent) imageModal: ImageModalComponent;
+  
   person$: Observable<Person>
   objectKeys = Object.keys;
   name:string
@@ -25,19 +28,17 @@ export class PersonDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
-    console.log("GETTING PERSON");
     this.person$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-      let found = this.service.getPerson(+params.get('personId'))
-      
-        console. log (found);
-        return found; 
-      }));
+      switchMap((params: ParamMap) => this.service.getPerson(+params.get('personId'))
+      ));
   }
 
   searchFB(person: Person){
     return `https://www.facebook.com/search/top/?q=${person.name}&epa=SEARCH_BOX`;
+  }
+
+  investigatePic(){
+    this.imageModal.toggle();
   }
 
 }

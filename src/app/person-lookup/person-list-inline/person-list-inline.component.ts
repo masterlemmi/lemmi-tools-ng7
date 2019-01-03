@@ -13,7 +13,6 @@ export class PersonListInlineComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.personList.forEach(console.log)
   }
 
 }

@@ -33,15 +33,12 @@
 
         <div class="column">
           <div class="columns">
-            <div class="column is-one-quarter"> 
-              
+            <div class="column is-half"> 
               <input id="name" class="input is-medium" type="text" placeholder="Full Name" [(ngModel)]="person.name"></div>
           </div>
 
-
-
           <div class="columns">
-            <div class="column is-one-fifth"> <input id="name" class="input is-medium" type="text" placeholder="Nickname" [(ngModel)]="person.nickname">
+            <div class="column is-one-quarter"> <input id="name" class="input is-medium" type="text" placeholder="Nickname" [(ngModel)]="person.nickname">
             </div>
           </div>
 
@@ -81,103 +78,34 @@
       <!-- end of profile picture column
       -->
 
-
-
-
       <div class="field">
         <label class="label">Parents </label>
         <div class="person-search">
-
-          <div class="field is-grouped is-grouped-multiline person-list">
-      
-            <div class="control" *ngFor="let parent of person.parents; let i= index">
-              <div class="tags has-addons is-medium">
-                <a class="tag is-link is-medium" [ngClass]="{'is-female': parent.gender == 'FEMALE'}"> {{i}}{{parent.name}}</a>
-                <a class="tag is-delete is-medium" (click)="person.parents.splice(i, 1)"></a>
-              </div>
-            </div>
-
-            <div class="control">
-              <a class=" tag is-link is-light is-medium  add-person">[Add Person]</a>
-            </div>
-
-          </div>
+          <person-edit-inline-list [list]="person.parents" [person-type]="'Parent'"></person-edit-inline-list>
+         
         </div>
       </div>
-
 
       <div class="field">
         <label class="label">Children </label>
         <div class="person-search">
-
-          <div class="field is-grouped is-grouped-multiline person-list">
-            <div class="control">
-              <div class="tags has-addons is-medium">
-                <a class="tag is-link is-medium">Alex Smith</a>
-                <a class="tag is-delete is-medium"></a>
-              </div>
-            </div>
-
-            <div class="control">
-              <div class="tags has-addons is-medium">
-                <a class="tag is-link is-medium is-female">Jane Smith</a>
-                <a class="tag is-delete is-medium"></a>
-              </div>
-            </div>
-
-            <div class="control">
-              <a class=" tag is-link is-light is-medium  add-person">[Add Person]</a>
-            </div>
-
-          </div>
+            <person-edit-inline-list [list]="person.children" [person-type]="'Child'"></person-edit-inline-list>
         </div>
       </div>
 
-
-
-
-
       <div class="field">
         <label class="label">Relationships </label>
-        <div class="person-search">
-          <div class="columns">
+        <div class="person-search" *ngIf="person.relationships as relationships">
+          <div class="columns" *ngFor="let name of objectKeys(relationships)">
             <div class="column is-one-fifth">
-              <input type="text" placeholder="Type" class="input">
+              <input type="text" placeholder="Type" class="input" [(ngModel)]="name">
             </div>
-
-
-
             <div class="column">
-              <div class="field is-grouped is-grouped-multiline person-list">
-                <div class="control">
-                  <div class="tags has-addons is-medium">
-                    <a class="tag is-link is-medium">Alex Smith</a>
-                    <a class="tag is-delete is-medium"></a>
-                  </div>
-                </div>
-                <div class="control">
-                  <div class="tags has-addons is-medium">
-                    <a class="tag is-link is-medium">Alex Smith</a>
-                    <a class="tag is-delete is-medium"></a>
-                  </div>
-                </div>
-
-                <div class="control">
-                  <div class="tags has-addons is-medium">
-                    <a class="tag is-link is-medium is-female">Jane Smith</a>
-                    <a class="tag is-delete is-medium"></a>
-                  </div>
-                </div>
-
-                <div class="control">
-                  <a class=" tag is-link is-light is-medium  add-person">[Add Person]</a>
-                </div>
-
-              </div>
+                <person-edit-inline-list [list]="relationships[name]" [person-type]="name"></person-edit-inline-list>
             </div>
-
           </div>
         </div>
+
         <div class="control">
           <a class=" tag is-link is-light is-medium  add-person">[Add Relationship]</a>
         </div>
@@ -201,3 +129,4 @@
     </div>
   </div>
 <!-- </section> -->
+

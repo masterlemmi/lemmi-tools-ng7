@@ -14,3 +14,8 @@ a.tag {
 .tags {
     margin-bottom: -1.5rem;
 }
+
+.is-rounded-modified {
+    -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+}

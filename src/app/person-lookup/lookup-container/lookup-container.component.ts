@@ -1,23 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../models/person';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'person-lookup',
   templateUrl: './lookup-container.component.html',
   styleUrls: ['./lookup-container.component.scss']
 })
-export class LookupContainerComponent implements OnInit {
+export class LookupContainerComponent  {
 
-  persons: any = [
-    {name: "Lemuel",
-    nickname: "Lem"},
-    {name: "Patrick Luther Taeza", nickname:"Teri"},
-    {name: "Patrick Luther Taeza", nickname:"Teri"}
-  ];
+  constructor(private router: Router) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  getProfile(person:Person){
+    const id = person.id;
+    this.router.navigate(['/people/id', id])
   }
-
 }

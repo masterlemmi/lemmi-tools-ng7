@@ -10,18 +10,22 @@ import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonEditComponent } from './person-edit/person-edit.component';
 import { PersonSearchComponent } from './person-search/person-search.component';
 import { LookupContainerComponent } from './lookup-container/lookup-container.component';
-import { PersonResultComponent } from './person-result/person-result.component';
+import { PersonResultComponent } from './person-search/person-search-result/person-search-result.component';
 import { PersonGroupComponent } from './person-group/person-group.component';
+import { PersonSearchModalComponent } from './person-search/person-search-modal/person-search-modal.component';
+import { InlineEditListComponent } from './person-edit/inline-list/inline-list.component';
+import { PersonSearchModalService } from './person-search/person-search-modal.service';
 
 @NgModule({
   declarations: [InsideTestComponent, PersonListComponent, PersonDetailComponent, PersonEditComponent, 
-    PersonSearchComponent, LookupContainerComponent, PersonResultComponent, PersonListInlineComponent, PersonGroupComponent,],
+    PersonSearchComponent, LookupContainerComponent, PersonResultComponent, PersonListInlineComponent, PersonGroupComponent, 
+    PersonSearchModalComponent, InlineEditListComponent,],
 
   imports: [
     CommonModule,
     PersonLookupRoutingModule,
     SharedModule
   ],
-  providers: [PersonService]
+  providers: [PersonService, PersonSearchModalService]
 })
 export class PersonLookupModule { }

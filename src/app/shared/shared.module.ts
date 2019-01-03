@@ -6,6 +6,7 @@ import { ImagePreloadDirective } from './directives/image-preload.directive';
 import { FormsModule } from '@angular/forms';
 import { BurgerToggleDirective } from './directives/burger-toggle.directive';
 import { InputFocusDirective } from './directives/input-focus.directive';
+import { ImageModalComponent } from './image-modal/image-modal.component';
 
 /* our own custom components */
 //import { SomeCustomComponent } from './some-custom/some-custom.component';
@@ -13,20 +14,21 @@ import { InputFocusDirective } from './directives/input-focus.directive';
 @NgModule({
   imports: [
     /* angular stuff */
-    HttpClientModule,
+    HttpClientModule, CommonModule,
     
   ],
   declarations: [
     //SomeCustomComponent
     ImagePreloadDirective,
-    BurgerToggleDirective, InputFocusDirective
+    BurgerToggleDirective, InputFocusDirective, ImageModalComponent
     
   ],
   exports: [
     /* angular stuff */
     HttpClientModule,
     FormsModule,
-    ImagePreloadDirective, BurgerToggleDirective, InputFocusDirective
+    ImagePreloadDirective, BurgerToggleDirective, InputFocusDirective,
+    ImageModalComponent
   ]
 })
 export class SharedModule { }
