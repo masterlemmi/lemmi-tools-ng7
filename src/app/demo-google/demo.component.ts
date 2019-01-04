@@ -13,6 +13,7 @@ export class DemoComponent implements AfterViewInit {
     'profile',
     'email',
     'https://www.googleapis.com/auth/plus.me',
+    'https://www.googleapis.com/auth/contacts',
     'https://www.googleapis.com/auth/contacts.readonly',
     'https://www.googleapis.com/auth/admin.directory.user.readonly',
     'https://www.googleapis.com/auth/drive.appfolder'
@@ -31,7 +32,7 @@ export class DemoComponent implements AfterViewInit {
         cookiepolicy: 'single_host_origin',
         scope: this.scope
       });
-      //this.attachSignin(this.element.nativeElement.firstChild);
+      this.attachSignin(this.element.nativeElement.firstChild);
     });
   }
 
