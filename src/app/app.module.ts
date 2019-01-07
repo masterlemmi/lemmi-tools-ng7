@@ -13,6 +13,7 @@ import { Test2CompComponent } from './test2-comp/test2-comp.component';
 import { CoreModule} from './core/core.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

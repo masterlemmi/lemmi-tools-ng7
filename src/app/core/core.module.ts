@@ -21,7 +21,8 @@ import { SharedModule } from 'app/shared/shared.module';
     HeaderComponent, FooterComponent, HomeComponent,
 
   ],
-  declarations: [HeaderComponent, FooterComponent, HomeComponent]
+  declarations: [HeaderComponent, FooterComponent, HomeComponent],
+  providers: []
 })
 export class CoreModule {
   constructor (@Optional() @SkipSelf() parentModule: CoreModule) {

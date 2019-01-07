@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class PersonService {
 
-  private personesUrl = 'api/family';  // URL to web api
+  private personesUrl = 'api/lemmitools/people';  // URL to web api
 
   constructor(
     private http: HttpClient,
