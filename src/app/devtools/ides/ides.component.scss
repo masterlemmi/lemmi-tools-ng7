@@ -1,0 +1,22 @@
+.container {
+    padding: 1rem 5rem;
+}
+
+li:not(.isactive){
+    background-color: #81565e
+}
+
+article.media {
+    background-color: white;
+    border-bottom: 1px solid;
+}
+
+a.is-hyperlink{
+    color: blue !important;
+    text-decoration: underline;
+}
+
+div.combined {
+    border-bottom: 0;
+    margin-bottom: -2rem;
+}

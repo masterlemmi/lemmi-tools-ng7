@@ -1,0 +1,44 @@
+<!-- <div class="columns">
+  <div class="column is-one-quarter">
+    <aside class="menu">
+
+      <ul class="menu-list">
+        <li (click)="show('shortcuts')" ><a class="is-active" >Shortcuts</a></li>
+        <li (click)="show('plugins', 'all')"><a>Plugins</a>
+          <ul>
+            <li (click)="show('plugins', 'eclipse')" noPropagationClick><a>Eclipse</a></li>
+            <li (click)="show('plugins', 'intellij')"noPropagationClick><a>IntelliJ</a></li>
+            <li (click)="show('plugins', 'vscode')" noPropagationClick><a>VS Code</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+  </div>
+  <div class="column">
+    <ide-shortcuts *ngIf="active['shortcuts_']"></ide-shortcuts>
+    <ide-plugins *ngIf="showPlugins" [ide]="chosenIDE"></ide-plugins>
+  </div>
+</div> -->
+
+
+<div class="columns">
+  <div class="column is-one-quarter">
+    <aside class="menu">
+
+      <ul class="menu-list">
+        <li *ngFor="let m of menuList" noPropagationClick (click)="show(m)">
+          <a [ngClass]="{'is-active': m.selected}"> {{m.name | titlecase}}</a>
+
+          <ul *ngIf="m.submenu as subList">
+            <li *ngFor="let s of subList" noPropagationClick (click)="show(s)">
+              <a [ngClass]="{'is-active': s.selected}"> {{s.filter | titlecase}}</a>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+  </div>
+  <div class="column">
+    <ide-shortcuts *ngIf="display['shortcuts']"></ide-shortcuts>
+    <ide-plugins *ngIf="display['plugins']" [ide]="chosenIDE"></ide-plugins>
+  </div>
+</div>

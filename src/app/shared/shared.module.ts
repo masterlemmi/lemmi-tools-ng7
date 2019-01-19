@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { BurgerToggleDirective } from './directives/burger-toggle.directive';
 import { InputFocusDirective } from './directives/input-focus.directive';
 import { ImageModalComponent } from './image-modal/image-modal.component';
+import { TableComponent } from './table/table.component';
+import { NoPropagationClickDirective } from './directives/no-propagation-click.directive';
 
 /* our own custom components */
 //import { SomeCustomComponent } from './some-custom/some-custom.component';
@@ -20,7 +22,7 @@ import { ImageModalComponent } from './image-modal/image-modal.component';
   declarations: [
     //SomeCustomComponent
     ImagePreloadDirective,
-    BurgerToggleDirective, InputFocusDirective, ImageModalComponent
+    BurgerToggleDirective, InputFocusDirective, ImageModalComponent, TableComponent, NoPropagationClickDirective
     
   ],
   exports: [
@@ -28,7 +30,7 @@ import { ImageModalComponent } from './image-modal/image-modal.component';
     HttpClientModule,
     FormsModule,
     ImagePreloadDirective, BurgerToggleDirective, InputFocusDirective,
-    ImageModalComponent
+    ImageModalComponent, TableComponent, CommonModule, NoPropagationClickDirective
   ]
 })
 export class SharedModule { }
