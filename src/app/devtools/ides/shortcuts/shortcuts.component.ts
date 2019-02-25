@@ -1,13 +1,28 @@
+import { PageItem } from './../../../shared/page-item';
+
 import { Component, OnInit } from '@angular/core';
+import { Page } from 'app/shared/page';
+
+export class ShortcutsPageItem extends PageItem{
+  
+  constructor(name? : string){
+    let defaultName = name || "shortcuts"
+    let page = new Page(defaultName, ShortcutsComponent);
+
+    super(page, "");
+  }
+}
 
 @Component({
   selector: 'ide-shortcuts',
   templateUrl: './shortcuts.component.html',
   styleUrls: ['./shortcuts.component.scss']
 })
-export class ShortcutsComponent implements OnInit {
+export class ShortcutsComponent implements OnInit{
 
   headers = ["Eclipse", "Intelliyyyy", "VsCode", "Description"]
+
+
 
   data: any[] = [
     {
@@ -41,4 +56,7 @@ export class ShortcutsComponent implements OnInit {
   getKeys(obj: any): any[] {
     return Object.keys(obj);
   }
+
+
+
 }

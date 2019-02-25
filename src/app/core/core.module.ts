@@ -1,4 +1,4 @@
-import { MessageService } from './message.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from 'app/shared/shared.module';
+
+import { MenuDirective } from './menu.directive';
 
 @NgModule({
   
@@ -21,7 +23,7 @@ import { SharedModule } from 'app/shared/shared.module';
     HeaderComponent, FooterComponent, HomeComponent,
 
   ],
-  declarations: [HeaderComponent, FooterComponent, HomeComponent],
+  declarations: [HeaderComponent, FooterComponent, HomeComponent, MenuDirective],
   providers: []
 })
 export class CoreModule {

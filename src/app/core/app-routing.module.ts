@@ -1,3 +1,4 @@
+import { InterestsModule } from './../interests/interests.module';
 import { DevtoolsModule } from './../devtools/devtools.module';
 import { HomeComponent } from './home/home.component';
 import { FirstPageComponent } from './../first-page/first-page.component';
@@ -15,6 +16,7 @@ import {  AuthGuard
 const routes: Routes = [
 { path: 'people', loadChildren: () => PersonLookupModule},
 { path: 'devtools', loadChildren: () => DevtoolsModule},
+{ path: 'interests', loadChildren: () => InterestsModule},
   { path: 'test', component: DemoComponent },
   { path: 'private', component: FirstPageComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent },
